@@ -16,6 +16,7 @@ import Divider from "@material-ui/core/Divider";
 import auth from "./../auth/auth-helper";
 import { read } from "./api-user.js";
 import { Redirect, Link } from "react-router-dom";
+import DeleteUser from "./DeleteUser";
 
 const useStyles = makeStyles((theme) => ({
   root: theme.mixins.gutters({
@@ -80,6 +81,7 @@ const Profile = ({ match }) => {
                     <Edit />
                   </IconButton>
                 </Link>
+                <DeleteUser userId={user._id} />
               </ListItemSecondaryAction>
             )}
         </ListItem>
@@ -95,3 +97,6 @@ const Profile = ({ match }) => {
 };
 
 export default Profile;
+DeleteUser.propTypes = {
+  userId: PropTypes.string.isRequired,
+};
