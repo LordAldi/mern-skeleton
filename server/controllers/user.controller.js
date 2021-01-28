@@ -48,13 +48,19 @@ const read = async (req, res) => {
   res.json(req.profile);
 };
 const update = async (req, res) => {
+  console.log("update");
   try {
     let user = req.profile;
-    user = extend(user, rew.body);
+    console.log(user);
+    user = extend(user, req.body);
+    console.log("yee");
+    console.log(user);
+
     user.updated = Date.now();
     await user.save();
     user.hashed_password = undefined;
     user.salt = undefined;
+    res.json(user);
   } catch (err) {
     return res.status(400).json({
       error: errorHandler.getErrorMessage(err),
