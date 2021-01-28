@@ -65,3 +65,6 @@ const DeleteUser = (props) => {
 };
 
 export default DeleteUser;
+DeleteUser.propTypes = {
+  userId: PropTypes.string.isRequired,
+};

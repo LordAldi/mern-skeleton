@@ -28,9 +28,6 @@ const Home = () => {
   const classes = useStyles();
   return (
     <Card className={classes.card}>
-      <Link to="/users">Users</Link>
-      <Link to="/signup">signup</Link>
-      <Link to="/signin">signin</Link>
       <Typography variant="h6" className={classes.title}>
         Home Pages
       </Typography>

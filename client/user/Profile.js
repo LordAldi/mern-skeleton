@@ -97,6 +97,3 @@ const Profile = ({ match }) => {
 };
 
 export default Profile;
-DeleteUser.propTypes = {
-  userId: PropTypes.string.isRequired,
-};
