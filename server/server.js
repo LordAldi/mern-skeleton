@@ -1,15 +1,16 @@
 import app from "./express";
 import config from "../config/config";
-import mongooose from "mongoose";
+import mongoose from "mongoose";
 
-mongooose.Promise = global.Promise;
-mongooose.connect(config.mongoUri, {
+mongoose.Promise = global.Promise;
+console.log(config.mongoUri);
+mongoose.connect(config.mongoUri, {
   useNewUrlParser: true,
   useCreateIndex: true,
   useUnifiedTopology: true,
 });
-mongooose.connection.on("error", () => {
-  throw new Error(`unable to connect to database ${mongoUri}`);
+mongoose.connection.on("error", () => {
+  throw new Error(`unable to connect to database: ${config.mongoUri}`);
 });
 
 app.listen(config.port, (err) => {
@@ -17,4 +18,5 @@ app.listen(config.port, (err) => {
     console.log(err);
   }
   console.info("Server started on port %s.", config.port);
+  console.info("Database on url %s.", config.mongoUri);
 });
