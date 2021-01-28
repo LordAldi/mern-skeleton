@@ -26,7 +26,6 @@ const list = async (req, res) => {
   }
 };
 const userByID = async (req, res, next, id) => {
-  console.log("userbyis");
   try {
     let user = await User.findById(id);
     if (!user) {
@@ -48,13 +47,9 @@ const read = async (req, res) => {
   res.json(req.profile);
 };
 const update = async (req, res) => {
-  console.log("update");
   try {
     let user = req.profile;
-    console.log(user);
     user = extend(user, req.body);
-    console.log("yee");
-    console.log(user);
 
     user.updated = Date.now();
     await user.save();

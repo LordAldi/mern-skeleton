@@ -70,7 +70,6 @@ const EditProfile = ({ match }) => {
       abortController.abort();
     };
   }, [match.params.userId]);
-  console.log(match.params.userId);
   const clickSubmit = () => {
     const user = {
       name: values.name || undefined,

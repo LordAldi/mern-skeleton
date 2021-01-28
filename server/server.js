@@ -3,7 +3,6 @@ import config from "../config/config";
 import mongoose from "mongoose";
 
 mongoose.Promise = global.Promise;
-console.log(config.mongoUri);
 mongoose.connect(config.mongoUri, {
   useNewUrlParser: true,
   useCreateIndex: true,
